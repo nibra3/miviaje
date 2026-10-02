@@ -1,0 +1,19 @@
+// Ajustes generales para celular
+@use "mixins" as *;
+
+/* Ajustes de celular */
+@include down(sm) {
+  .hero { padding-top: 2rem; }
+  .hero-inner { padding-bottom: 4.5rem; }
+  .hero-lead { font-size: 1rem; }
+  .eyebrow { font-size: .7rem; }
+  .list, .tiles { padding-block: 1.75rem 1rem; }
+  .card { border-radius: 16px; padding: 1.15rem; }
+  .card-foot { flex-direction: column; align-items: stretch; }
+  .card-actions { flex-direction: column; align-items: stretch; margin-left: 0; }
+  .maps-btn, .save-btn { justify-content: center; padding-block: .8rem; }
+  .tile { padding: 1.15rem; border-radius: 18px; }
+  .tile-name { font-size: 1.6rem; }
+  .next { padding: 1.15rem 1.25rem; margin-bottom: 2rem; }
+  .pick { padding: .8rem .95rem; }
+}

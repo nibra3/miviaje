@@ -1,0 +1,96 @@
+// Barra de navegación fija con las 5 secciones y Mis listas
+@use "mixins" as *;
+
+/* Nav */
+.topbar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: color-mix(in srgb, var(--cream) 86%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: .7rem 16px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.brand {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: .35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-left: auto;
+  min-width: 0;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .9rem;
+  padding: .45rem .8rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: background .2s, border-color .2s, transform .2s var(--ease);
+}
+.nav-link:hover { background: var(--beige-soft); transform: translateY(-1px); }
+.nav-link.is-active { background: var(--btn-bg); color: var(--btn-fg); }
+.nav-emoji { font-size: 1rem; }
+.nav-top { display: contents; }
+.brand { order: 0; }
+.nav-links { order: 1; }
+.nav-lists {
+  order: 2;
+  display: inline-flex; align-items: center; gap: .4rem;
+  flex-shrink: 0;
+  text-decoration: none; font-weight: 700; font-size: .9rem;
+  padding: .45rem .85rem; border-radius: 999px;
+  border: 1.5px solid var(--choco);
+  transition: background .2s, color .2s, transform .2s var(--ease);
+}
+.nav-lists svg { width: 15px; height: 15px; fill: currentColor; }
+.nav-lists:hover { transform: translateY(-1px); background: var(--beige-soft); }
+.nav-lists.is-active { background: var(--btn-bg); color: var(--btn-fg); border-color: var(--btn-bg); }
+.badge {
+  min-width: 1.35rem; height: 1.35rem; padding: 0 .35rem;
+  display: inline-grid; place-items: center;
+  border-radius: 999px; font-size: .72rem; font-family: var(--mono);
+  background: var(--btn-bg); color: var(--btn-fg);
+  font-variant-numeric: tabular-nums;
+}
+.nav-lists.is-active .badge { background: var(--btn-fg); color: var(--btn-bg); }
+.badge.bump { animation: bump .45s var(--ease); }
+@keyframes bump { 40% { transform: scale(1.35); } }
+@include down(nav) {
+  .nav { gap: .6rem; }
+  .nav-link { padding: .45rem .55rem; font-size: .85rem; }
+}
+/* Celular y tablet chica: marca + Mis listas arriba, y las 5 secciones en una grilla que siempre entra */
+@include down(md) {
+  .nav { flex-direction: column; align-items: stretch; gap: .45rem; padding-block: .55rem .5rem; }
+  .nav-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+  .brand { font-size: 1.25rem; }
+  .nav-lists { font-size: .82rem; padding: .35rem .7rem; }
+  .nav-links { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .25rem; margin: 0; overflow: visible; }
+  .nav-link {
+    flex-direction: column; gap: .15rem;
+    padding: .4rem .15rem; border-radius: 12px;
+    font-size: .72rem; line-height: 1.1; text-align: center;
+    min-width: 0;
+  }
+  .nav-emoji { font-size: 1.15rem; }
+}

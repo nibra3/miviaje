@@ -1,0 +1,54 @@
+// Encabezado de cada página con la cordillera dibujada
+/* Page + hero */
+.page { padding-inline: 16px; }
+.hero {
+  position: relative;
+  margin: 0 -16px;
+  padding: clamp(2.5rem, 7vw, 5rem) 16px 0;
+  background: linear-gradient(180deg, var(--beige-soft), var(--cream) 85%);
+  overflow: hidden;
+}
+.hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; padding-bottom: clamp(4rem, 9vw, 7rem); }
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 .9rem;
+}
+.hero-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 8vw, 4.6rem);
+  line-height: 1;
+  margin: 0;
+  text-wrap: balance;
+  letter-spacing: -.01em;
+}
+.hero-title.big { font-size: clamp(3rem, 11vw, 6.6rem); }
+.hero-title em { font-style: italic; color: var(--muted); }
+.hero-lead { max-width: 60ch; font-size: 1.12rem; margin: 1.2rem 0 0; color: var(--choco); opacity: .88; }
+.hero-item { animation: rise .8s var(--ease) both; animation-delay: calc(var(--d, 0) * .12s + .1s); }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+.ridge { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: clamp(70px, 12vw, 150px); }
+.ridge-back { fill: var(--ridge-back); animation: drift 1.4s var(--ease) both; }
+.ridge-front { fill: var(--ridge-front); opacity: .55; animation: drift 1.4s .15s var(--ease) both; }
+@keyframes drift { from { transform: translateY(30px); opacity: 0; } to { transform: none; } }
+
+.picks { display: grid; gap: .75rem; margin-top: 1.8rem; max-width: 720px; }
+.pick {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: .9rem 1.1rem;
+}
+.pick p { margin: .2rem 0 0; }
+.pick-label, .tile-top-label, .rating-label {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}

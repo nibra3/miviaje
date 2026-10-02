@@ -1,0 +1,38 @@
+// Paleta (crema, beige, chocolate), tipografías y modo oscuro
+/* Layout: refugio de montaña — hero con cordillera dibujada, columna central de fichas tipo carta de casa de té, nav fija de 5 secciones */
+:root {
+  --cream: #F6EEE3;
+  --surface: #FBF6EE;
+  --beige: #D8C3A5;
+  --beige-soft: #EADCC6;
+  --choco: #3B2418;
+  --muted: #7A5A45;
+  --line: rgba(59, 36, 24, .14);
+  --btn-bg: #3B2418;
+  --btn-fg: #F6EEE3;
+  --ridge-back: #D8C3A5;
+  --ridge-front: #C4A884;
+  --shadow: 0 1px 0 rgba(59,36,24,.06), 0 14px 32px -18px rgba(59,36,24,.35);
+  --display: "Gloock", "Georgia", "Times New Roman", serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cream: #1F130D; --surface: #2B1B13; --beige: #C9AE8A; --beige-soft: #3A281E;
+    --choco: #F3E7D7; --muted: #C4AA90; --line: rgba(243, 231, 215, .14);
+    --btn-bg: #D8C3A5; --btn-fg: #2B1B13; --ridge-back: #3A281E; --ridge-front: #4A3426;
+    --shadow: 0 1px 0 rgba(0,0,0,.2), 0 16px 34px -18px rgba(0,0,0,.7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --cream: #1F130D; --surface: #2B1B13; --beige: #C9AE8A; --beige-soft: #3A281E;
+  --choco: #F3E7D7; --muted: #C4AA90; --line: rgba(243, 231, 215, .14);
+  --btn-bg: #D8C3A5; --btn-fg: #2B1B13; --ridge-back: #3A281E; --ridge-front: #4A3426;
+  --shadow: 0 1px 0 rgba(0,0,0,.2), 0 16px 34px -18px rgba(0,0,0,.7);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }

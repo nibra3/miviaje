@@ -1,0 +1,13 @@
+// Guía Bariloche — punto de entrada de los estilos
+// Compilar: sass scss/main.scss css/styles.css --no-source-map
+// Mientras trabajás: sass --watch scss/main.scss css/styles.css
+
+@use "tokens";
+@use "base";
+@use "nav";
+@use "hero";
+@use "cards";
+@use "tiles";
+@use "listas";
+@use "responsive";
+@use "animations";

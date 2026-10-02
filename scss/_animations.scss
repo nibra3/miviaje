@@ -1,0 +1,15 @@
+// Aparición al scrollear, footer y movimiento reducido
+/* Scroll reveal: visible by default, JS only hides what is below the fold */
+.reveal.pending { opacity: 0; transform: translateY(28px); }
+.reveal.pending .stars-fill { width: 0; }
+.reveal.shown { transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--stagger, 0) * 90ms); }
+
+.foot { text-align: center; padding: 2rem 16px 2.5rem; font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); }
+.foot p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal.pending { opacity: 1; transform: none; }
+  .reveal.pending .stars-fill { width: var(--w); }
+  html { scroll-behavior: auto; }
+}

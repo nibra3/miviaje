@@ -1,0 +1,43 @@
+// Tarjetas de la portada (index)
+@use "mixins" as *;
+
+/* Index tiles */
+.tiles {
+  max-width: 1080px; margin: 0 auto; padding-block: 2.5rem 3.5rem;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem;
+}
+@include down(lg) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@include down(sm) { .tiles { grid-template-columns: minmax(0, 1fr); } }
+.tile {
+  display: flex; flex-direction: column; gap: .5rem;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.4rem;
+  box-shadow: var(--shadow);
+  min-width: 0;
+  transition: transform .35s var(--ease), background .35s var(--ease), color .35s var(--ease);
+}
+.tile-emoji {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: .35rem;
+  font-size: 2rem;
+  line-height: 1;
+  border-radius: 16px;
+  background: var(--beige-soft);
+  transform-origin: 50% 50%;
+  transition: transform .45s var(--ease), background .35s var(--ease);
+}
+.tile-count { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tile-name { font-family: var(--display); font-size: 1.8rem; line-height: 1.05; }
+.tile-lead { font-size: .95rem; opacity: .85; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.tile-top { font-size: .9rem; display: flex; flex-direction: column; gap: .15rem; padding-top: .6rem; border-top: 1px dashed var(--line); margin-top: auto; }
+.tile-go { font-weight: 700; font-size: .92rem; margin-top: .3rem; transition: transform .3s var(--ease); }
+.tile:hover { transform: translateY(-5px); background: var(--btn-bg); color: var(--btn-fg); }
+.tile:hover .tile-count, .tile:hover .tile-top-label { color: inherit; opacity: .75; }
+.tile:hover .tile-emoji { transform: rotate(-6deg) scale(1.06); background: var(--beige); }
+.tile:hover .tile-go { transform: translateX(6px); }

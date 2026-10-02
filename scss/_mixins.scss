@@ -1,0 +1,27 @@
+// Breakpoints y mixins para media queries
+@use "sass:map";
+
+$breakpoints: (
+  nav: 920px, // la nav empieza a achicarse
+  lg: 860px,  // tablet: 2 columnas
+  md: 760px,  // nav en grilla, tarjetas en una columna
+  sm: 540px   // celular
+);
+
+// Acepta un nombre del mapa (sm, md…) o un valor directo (700px)
+@function size($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    @return map.get($breakpoints, $bp);
+  }
+  @return $bp;
+}
+
+// @include down(sm) { ... }  →  @media (max-width: 540px)
+@mixin down($bp) {
+  @media (max-width: size($bp)) { @content; }
+}
+
+// @include up(700px) { ... }  →  @media (min-width: 700px)
+@mixin up($bp) {
+  @media (min-width: size($bp)) { @content; }
+}
